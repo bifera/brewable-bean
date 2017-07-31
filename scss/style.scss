@@ -1,0 +1,23 @@
+* {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+//variables
+$bgColor: #E3B23C;
+
+.background {
+    width: 100vw;
+    height: 500vh;
+    border: 1px solid black;
+    background-color: $bgColor;
+}
+
+.container {
+    width: 40vw;
+    height: 40vw;
+    border: 1px solid black;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
