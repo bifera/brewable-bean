@@ -6,18 +6,77 @@
 //variables
 $bgColor: #E3B23C;
 
-.background {
+
+body {
     width: 100vw;
-    height: 500vh;
-    border: 1px solid black;
-    background-color: $bgColor;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.container {
-    width: 40vw;
-    height: 40vw;
+header {
+    width: 100vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+    p {
+        font-size: 2rem;
+        font-style: italic;
+    }
+}
+
+main {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.bean {
+    width: 3rem;
+    height: 3rem;
     border: 1px solid black;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 30%;
+    border-top-left-radius: 50%;
+    background-color: $bgColor;
+    position: absolute;
+    top: 20vh;
+    left: 20vw;
+    transform: rotate(25deg);
+}
+
+.bean-fixed {
     position: fixed;
-    top: 0;
-    left: 0;
+}
+
+.bean-large {
+    transform: scale(2,2) rotate(-45deg);
+}
+
+section {
+    width: 100%;
+    max-width: 1000px;
+    border: 1px solid red;
+}
+
+article {
+    h2 {
+        font-size: 2rem;
+    }
+    > div {
+        width: 100%;
+        height: 100vh;
+        border: 1px solid black;
+    }
 }
