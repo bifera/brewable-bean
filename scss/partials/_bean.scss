@@ -15,16 +15,9 @@
     border-bottom-left-radius: 30%;
     border-top-left-radius: 50%;
     background-color: $bgColor;
-    position: absolute;
-    top: 20vh;
-    left: 20vw;
     transform: rotate(25deg);
+    display: none;
 }
-
-.bean-fixed {
-    position: fixed;
-}
-
 .bean-large {
     transform: scale(2,2) rotate(-45deg);
 }
