@@ -2,20 +2,50 @@ $(function(){
     var headerButton = $('#header-button');
     var coffeeBean = $('#coffee-bean');
     var beanOffset = coffeeBean.offset().top;
-    console.log(beanOffset);
-    var initialWindowHeight = $(window).innerHeight();
-    console.log(initialWindowHeight);
+    var firstSection = $('#part-one');
+    var firstArticle = firstSection.find('article');
 
-    var firstArticle = $('#part-one');
+    // extra super powers next button
+    var nextButton = $('<button>').addClass('button-next').attr('id', 'button-next').text('... and then what?');
 
+    // initial animation: button on header
     headerButton.on('click', function(){
         $('main').addClass('main-flex');
+        firstSection.show();
+        firstArticle.show();
         var initialOffset = $('main').offset().top;
         $('html, body').animate({scrollTop: initialOffset}, 1000, function(){
-            firstArticle.find('h2').fadeIn(800, function(){
-                firstArticle.find('div').fadeIn(1000);
+            firstArticle.find('h2').fadeIn(1000, function(){
+                firstArticle.find('div').fadeIn(1000, function(){
+                    nextButton.appendTo(firstArticle).fadeIn(1000);
+                });
             });
         }); 
+    });
+
+    // animation showing next sections
+    function showNextElement(currentElement){
+        var parentArticle = currentElement.closest('article');
+        var parentSection = parentArticle.parent();
+        var nextSection = parentSection.next();
+        var nextArticle = nextSection.find('article');
+        var distance = nextSection.height();
+        
+        nextSection.show();
+        nextArticle.show();
+        currentElement.detach(); // detach 'next' button to use it in next section
+        $('main').animate({scrollTop: distance}, 800, function(){
+            parentSection.hide();
+            nextArticle.find('h2').fadeIn(1000, function(){
+                nextArticle.find('div').fadeIn(1000, function(){
+                    currentElement.appendTo(nextArticle).fadeIn(1000);
+                });
+            });
+        });
+    }
+
+    nextButton.on('click', function(){
+        showNextElement($(this));
     });
 
 });
