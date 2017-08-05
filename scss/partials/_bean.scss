@@ -13,6 +13,7 @@
 }
 
 .bean {
+    display: inline-block;
     width: 10rem;
     height: 10rem;
     border: 1px solid black;
@@ -26,6 +27,22 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.bean-1 {
+    display: inline-block;
+    width: 8rem;
+    height: 8rem;
+    border: 1px solid black;
+    border-top-right-radius: 40% 40%;
+    border-bottom-right-radius: 70% 55%;
+    border-bottom-left-radius: 5%;
+    border-top-left-radius: 55% 70%;
+    background-color: $bgColor;
+    position: relative;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+}
+
 .bean-large {
     transform: scale(2,2) rotate(-45deg);
 }

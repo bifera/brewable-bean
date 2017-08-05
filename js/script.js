@@ -11,45 +11,60 @@ $(function(){
     var offsetTop = container.offset().top;
     var containerWidth = container.width();
     var sectionHeight = sections.eq(0).height();
-    
+
     var cssForBeanLayer = {
         "width": containerWidth,
         "height": sectionHeight,
         "top": offsetTop,
         "left": offsetLeft
     }
-    
+
     beanLayer.css(cssForBeanLayer);
 
     // extra super powers next button navigating from one section to another
     var nextButton = $('<button>').addClass('button-next').attr('id', 'button-next').text('... and then what?');
+
+
+    // functions for specific frames
+    function animateFirstFrame(){
+        beanLayer.fadeIn(); // function for specific frame, etc.
+        var clonedCoffeeBean = coffeeBean.clone(true).attr('id', 'coffee-bean-1');
+        clonedCoffeeBean.appendTo(beanLayer);
+        clonedCoffeeBean.removeClass('bean').addClass('bean-1');
+    }
+
 
     // super power animation triggered on both buttons events :)
     function showNextElement(){
         var currentArticle = sections.eq(counter).find('article');
         counter++;
         var amountToScroll = -distance*(counter);
+        console.log(counter);
         container.animate({top: amountToScroll}, 800, function(){
             currentArticle.find('h2').fadeIn(1000, function(){
                 currentArticle.find('div').fadeIn(1000, function(){
                     nextButton.appendTo(currentArticle).fadeIn(1000);
-                    beanLayer.fadeIn();
+
                 });
-            });  
+            });
+            if (counter === 1) {
+                animateFirstFrame();
+            }
+            if (counter === 2) {
+                $('#coffee-bean-1').hide();
+            }
         });
     }
     // initial scroll animation: header button event
     headerButton.on('click', function(){
         $('main').addClass('main-flex');
         showNextElement();
-        
     });
 
     // next button event
     nextButton.on('click', function(){
         nextButton.detach();
         showNextElement();
-        console.log(nextButton.parents());
     });
 
 });
