@@ -29,8 +29,10 @@ $(function(){
     function animateFirstFrame(){
         beanLayer.fadeIn(); // function for specific frame, etc.
         var clonedCoffeeBean = coffeeBean.clone(true).attr('id', 'coffee-bean-1');
+        var beanStalk = $('<div>').addClass('bean-stalk');
         clonedCoffeeBean.appendTo(beanLayer);
         clonedCoffeeBean.removeClass('bean').addClass('bean-1');
+        beanStalk.prependTo(beanLayer);
     }
 
 
