@@ -23,8 +23,21 @@
     border-top-left-radius: 55% 70%;
     background-color: $beanColor;
     position: absolute;
-    top: 45%;
-    left: 50%;
+    top: 55%;
+    left: 70%;
+    @include tablet {
+        top: 45%;
+        left: 50%;
+    }
+    @include tablet-landscape {
+        top: 45%;
+        left: 50%;
+    }
+    @include desktop {
+        top: 45%;
+        left: 50%;
+    }
+
     transform: translate(-50%, -50%);
 }
 .bean-1 {
@@ -53,5 +66,5 @@
     position: absolute;
     top: 54%;
     left: 36%;
-    
+
 }

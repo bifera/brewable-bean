@@ -1,5 +1,8 @@
 @import 'partials/reset.scss';
-@import 'partials/variables.scss';
+
+@import 'modules/variables.scss';
+@import 'modules/mixins.scss';
+
 @import 'partials/general.scss';
 @import 'partials/navigation.scss';
 @import 'partials/bean.scss';
