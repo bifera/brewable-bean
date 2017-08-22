@@ -27,11 +27,14 @@ body {
 
 header {
     width: 100%;
-    height: 85vh;
+    height: 95vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @include desktop {
+        height: 85vh;
+    }
     h1 {
         font-size: 3rem;
         margin-bottom: 2rem;
@@ -51,7 +54,10 @@ header {
 }
 footer {
     width: 100%;
-    min-height: 15vh;
+    height: 5vh;
+    @include desktop {
+        height: 15vh;
+    }
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,8 +74,11 @@ main {
 
 section {
     width: 100%;
-    height: 85vh;
+    height: 95vh;
     z-index: 1;
+    @include desktop {
+        height: 85vh;
+    }
 }
 
 article {
@@ -77,10 +86,15 @@ article {
     width: 100%;
     h2 {
         font-size: 2rem;
+        height: 10%;
         display: none;
     }
     > div {
         width: 100%;
+        height: 85%;
         display: none;
+    }
+    > button {
+        height: 5%;
     }
 }
