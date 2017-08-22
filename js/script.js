@@ -11,9 +11,18 @@ $(function(){
     var offsetTop = container.offset().top;
     var containerWidth = container.width();
     var sectionHeight = sections.eq(0).height();
-
+    
+    function setWidth(givenWidth){
+        if (givenWidth <= 600) {
+            return givenWidth;
+        } else {
+            givenWidth = 600;
+            return givenWidth;
+        }
+    }
+    
     var cssForBeanLayer = {
-        "width": containerWidth,
+        "width": setWidth(containerWidth),
         "height": sectionHeight,
         "top": offsetTop,
         "left": offsetLeft
@@ -28,10 +37,7 @@ $(function(){
     // functions for specific frames
     function animateFirstFrame(){
         beanLayer.fadeIn(); // function for specific frame, etc.
-        var clonedCoffeeBean = coffeeBean.clone(true).attr('id', 'coffee-bean-1');
         var beanStalk = $('<div>').addClass('bean-stalk');
-        clonedCoffeeBean.appendTo(beanLayer);
-        clonedCoffeeBean.removeClass('bean').addClass('bean-1');
         beanStalk.prependTo(beanLayer);
     }
 
@@ -51,9 +57,6 @@ $(function(){
             });
             if (counter === 1) {
                 animateFirstFrame();
-            }
-            if (counter === 2) {
-                $('#coffee-bean-1').hide();
             }
         });
     }
