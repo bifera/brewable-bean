@@ -24,8 +24,7 @@ $(function(){
     var cssForBeanLayer = {
         "width": setWidth(containerWidth),
         "height": sectionHeight,
-        "top": offsetTop,
-        "left": offsetLeft
+        "top": offsetTop
     }
 
     beanLayer.css(cssForBeanLayer);
